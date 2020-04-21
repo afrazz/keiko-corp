@@ -64,19 +64,6 @@ $(document).ready(function(){
 
 
 
-	//Nice scroll initialization
-	$("html").niceScroll({
-		scrollspeed: 50,
-		autohidemode : false,
-		cursorwidth : 8,
-		cursorborderradius: 8,
-		cursorborder : "0",
-		background : "rgba(48, 48, 48, .4)",
-		cursorcolor : '#1f1f1f',
-		zindex : 999
-	});
-
-
 
 
 
@@ -95,50 +82,6 @@ $(document).ready(function(){
 		autoPlay : true,
 		transitionStyle : "fade"
 	});
-
-
-
-
-
-
-
-	//Mailchimp subscription form initialization
-	$('#submit_form').submit(function(){
-		$('#mc_submit').attr('disabled', 'disabled');		
-   		processing('icon', 'loading');
-	});
-
-	if($('#submit_form').length){
-		//Mailchim Subscription form
-		$('#submit_form').ajaxChimp({
-		    callback: chimpResponce
-		});
-	}	
-
-	//Mail chimp callback function
-	function chimpResponce(resp) {
-   		if (resp.result === 'success') {   			
-   			processing('loading', 'icon');
-			$('#mc_submit').removeAttr('disabled', 'disabled');
-	        $('#submit_form #mc-email').val('');
-   			$('#error_msg').hide();
-   			$('#success_msg').show();
-	    }else{		
-   			processing('loading', 'icon');
-   			$('#success_msg').hide();
-   			$('#error_msg').show();
-	    	$('#mc_submit').removeAttr('disabled', 'disabled');
-	    }
-	}
-
-	function processing(hide, show){
-			$('#mc_submit i').removeClass(hide).addClass(show);
-	}
-
-
-
-
-
 
 
 
