@@ -923,3 +923,12 @@ footer .copyright a{
 		margin-top: 20px;
 	}
 }
+
+
+@media only screen and (max-width: 500px) {
+	.hero{
+		height: 80vh;
+		background: url('../img/hero-small.jpg') no-repeat fixed center center;
+		background-size: cover;
+	}
+}
